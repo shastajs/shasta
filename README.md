@@ -27,7 +27,7 @@ npm install shasta --save
 - Central store is completely immutable via Immutable.js
   - PropTypes include Immutable.js types by default
 - Easy to understand objects instead of functional composition
-  - Before: `compose(applyMiddleware(middleware), devtools)(createStore)(combineReducers(reducers), initialState)`
+  - Before: `createStore(combineReducers(reducers), initialState, compose(applyMiddleware(middleware), devtools))`
   - After: `createStore({middleware: [], initialState: {}, reducer: fn})`
 - Namespaced/nested actions and reducers
   - `createTodos` becomes `todos.create` in actions and reducers
