@@ -41,8 +41,7 @@
     "docs:publish": "cd _book && git init && git commit --allow-empty -m 'update book' && git checkout -b gh-pages && touch .nojekyll && git add . && git commit -am 'update book' && git push git@github.com:shastajs/shasta gh-pages --force"
   },
   "peerDependencies": {
-    "react": "^0.14.0",
-    "immutable": "^3.0.0"
+    "react": "^0.14.0"
   },
   "devDependencies": {
     "babel": "^6.3.26",
@@ -101,6 +100,7 @@
     }
   },
   "dependencies": {
+    "immutable": "^3.0.0",
     "babel-runtime": "^6.3.19",
     "lodash.mapvalues": "^4.0.1",
     "react-immutable-proptypes": "^1.5.1",
