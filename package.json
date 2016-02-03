@@ -3,7 +3,15 @@
   "version": "1.0.0",
   "description": "Dead simple + opinionated toolkit for building redux/react applications",
   "main": "dist/index.js",
-  "keywords": [],
+  "keywords": [
+    "react",
+    "redux",
+    "immutable",
+    "stack",
+    "toolkit",
+    "framework",
+    "shastajs"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/shastajs/shasta.git"
