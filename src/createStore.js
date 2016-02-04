@@ -8,11 +8,13 @@ const devtools = typeof window !== 'undefined' && window.devToolsExtension
 
 export default ({
   middleware = [],
+  enhancers = [],
   reducer,
   initialState = Map()
 }) => {
   if (typeof reducer !== 'function') throw new Error('Invalid reducer option')
   if (!Array.isArray(middleware)) throw new Error('Invalid middleware option')
+  if (!Array.isArray(enhancers)) throw new Error('Invalid enhancers option')
   if (!Iterable.isIterable(initialState)) throw new Error('Invalid initialState option')
 
   return createStore(
@@ -20,6 +22,7 @@ export default ({
     initialState,
     compose(
       applyMiddleware(thunk, ...middleware),
+      ...enhancers,
       devtools
     )
   )
