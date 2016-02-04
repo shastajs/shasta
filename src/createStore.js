@@ -4,7 +4,7 @@ import thunk from 'redux-thunk'
 
 const devtools = typeof window !== 'undefined' && window.devToolsExtension
   ? window.devToolsExtension()
-  : undefined
+  : (creator) => creator
 
 export default ({
   middleware = [],

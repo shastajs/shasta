@@ -18,7 +18,9 @@ var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var devtools = typeof window !== 'undefined' && window.devToolsExtension ? window.devToolsExtension() : undefined;
+var devtools = typeof window !== 'undefined' && window.devToolsExtension ? window.devToolsExtension() : function (creator) {
+  return creator;
+};
 
 exports.default = function (_ref) {
   var _ref$middleware = _ref.middleware;
