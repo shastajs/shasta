@@ -8,6 +8,7 @@ Shasta itself is simple, but it's built on the shoulders of other great projects
 ## React
 
 - [Why React?](https://facebook.github.io/react/docs/why-react.html)
+- [Thinking in React](https://facebook.github.io/react/docs/thinking-in-react.html)
 - [Displaying Data](https://facebook.github.io/react/docs/displaying-data.html)
 - [Interactivity](https://facebook.github.io/react/docs/interactivity-and-dynamic-uis.html)
 - [Multiple Components](https://facebook.github.io/react/docs/multiple-components.html)

@@ -10,6 +10,8 @@ Object.defineProperty(exports, "__esModule", {
 
 var _redux = require('redux');
 
+var _immutable = require('immutable');
+
 var _reduxThunk = require('redux-thunk');
 
 var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
@@ -21,7 +23,8 @@ var devtools = typeof window !== 'undefined' && window.devToolsExtension ? windo
 exports.default = function (_ref) {
   var middleware = _ref.middleware;
   var reducer = _ref.reducer;
-  var initialState = _ref.initialState;
+  var _ref$initialState = _ref.initialState;
+  var initialState = _ref$initialState === undefined ? (0, _immutable.Map)() : _ref$initialState;
 
   var applied = _redux.applyMiddleware.apply(undefined, [_reduxThunk2.default].concat((0, _toConsumableArray3.default)(middleware)));
 
