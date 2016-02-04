@@ -17,10 +17,8 @@ const store = createStore({
 
 ## Options
 
-- `reducer`
+- `reducers`
   - Required
-  - Expects a reducer function that handles actions
-  - You probably want to use [`combineReducers`](docs/combineReducers.md) to create this function
 - `initialState`
   - Optional (defaults to `Map()`)
   - Expects an Immutable.js type
@@ -37,22 +35,29 @@ const store = createStore({
 
 ## Example
 
-TODO
-
 ```js
-import { createStore, combineReducers } from 'shasta'
-import { reducer as routerReducer, }
+import { createStore } from 'shasta'
+import {
+  reducer as routerReducer,
+  middleware as routerMiddleware,
+  listenForReplays
+} from 'shasta-router'
 
-const reducer = combineReducers({
-  counter: (state) => ++state,
+const reducers = {
+  counter: {
+    increment: (state) => ++state,
+    decrement: (state) => --state,
+  },
   router: routerReducer
-})
+}
 
 const store = createStore({
-  reducer: reducer,
+  reducers: reducers,
   initialState: Map({
     counter: 123
-  })
+  }),
+  enhancers: [ listenForReplays ],
+  middleware: [ routerMiddleware ]
 })
 ```
 
