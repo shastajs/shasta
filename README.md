@@ -10,10 +10,10 @@ This is a work in progress - There is sparse documentation, no tests, and it's n
 One command and you're ready to roll:
 
 ```
-npm install shasta --save
+npm install shasta
 ```
 
-**Now**, check out the [documentation](http://shasta.tools/shasta/docs) to get started!
+**Now**, check out the [documentation](http://shasta.tools/shasta) to get started!
 
 [downloads-image]: http://img.shields.io/npm/dm/shasta.svg
 [npm-url]: https://npmjs.org/package/shasta
