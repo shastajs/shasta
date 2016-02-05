@@ -18,16 +18,19 @@ var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var devtools = typeof window !== 'undefined' && window.devToolsExtension ? window.devToolsExtension() : function (creator) {
-  return creator;
+var identity = function identity(v) {
+  return v;
 };
+
+var devtools = typeof window !== 'undefined' && window.devToolsExtension ? window.devToolsExtension() : identity;
 
 exports.default = function (_ref) {
   var _ref$middleware = _ref.middleware;
   var middleware = _ref$middleware === undefined ? [] : _ref$middleware;
   var _ref$enhancers = _ref.enhancers;
   var enhancers = _ref$enhancers === undefined ? [] : _ref$enhancers;
-  var reducer = _ref.reducer;
+  var _ref$reducer = _ref.reducer;
+  var reducer = _ref$reducer === undefined ? identity : _ref$reducer;
   var _ref$initialState = _ref.initialState;
   var initialState = _ref$initialState === undefined ? (0, _immutable.Map)() : _ref$initialState;
 
@@ -36,7 +39,7 @@ exports.default = function (_ref) {
   if (!Array.isArray(enhancers)) throw new Error('Invalid enhancers option');
   if (!_immutable.Iterable.isIterable(initialState)) throw new Error('Invalid initialState option');
 
-  return (0, _redux.createStore)(reducer, initialState, _redux.compose.apply(undefined, [_redux.applyMiddleware.apply(undefined, [_reduxThunk2.default].concat((0, _toConsumableArray3.default)(middleware)))].concat((0, _toConsumableArray3.default)(enhancers), [devtools])));
+  return (0, _redux.createStore)(reducer, initialState, _redux.compose.apply(undefined, [_redux.applyMiddleware.apply(undefined, [_reduxThunk2.default].concat((0, _toConsumableArray3.default)(middleware))), devtools].concat((0, _toConsumableArray3.default)(enhancers))));
 };
 
 module.exports = exports['default'];
