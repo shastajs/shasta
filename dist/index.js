@@ -27,15 +27,15 @@ var _inherits3 = _interopRequireDefault(_inherits2);
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.createStore = exports.createActions = exports.combineReducers = exports.PropTypes = exports.Component = undefined;
+exports.createStore = exports.createActions = exports.createReducer = exports.combineReducers = exports.PropTypes = exports.Component = undefined;
 
 var _react = require('react');
-
-var _reduxImmutablejs = require('redux-immutablejs');
 
 var _reactImmutableProptypes = require('react-immutable-proptypes');
 
 var _reactImmutableProptypes2 = _interopRequireDefault(_reactImmutableProptypes);
+
+var _reduxImmutablejs = require('redux-immutablejs');
 
 var _bindClass = require('./lib/bindClass');
 
@@ -52,6 +52,10 @@ var _createStore2 = _interopRequireDefault(_createStore);
 var _createActions = require('./lib/createActions');
 
 var _createActions2 = _interopRequireDefault(_createActions);
+
+var _createReducer = require('./lib/createReducer');
+
+var _createReducer2 = _interopRequireDefault(_createReducer);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -92,5 +96,6 @@ exports.
 
 // guts
 combineReducers = _reduxImmutablejs.combineReducers;
+exports.createReducer = _createReducer2.default;
 exports.createActions = _createActions2.default;
 exports.createStore = _createStore2.default;

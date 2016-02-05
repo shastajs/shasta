@@ -2,14 +2,16 @@ import { applyMiddleware, compose, createStore } from 'redux'
 import { Map, Iterable } from 'immutable'
 import thunk from 'redux-thunk'
 
+const identity = v => v
+
 const devtools = typeof window !== 'undefined' && window.devToolsExtension
   ? window.devToolsExtension()
-  : (creator) => creator
+  : identity
 
 export default ({
   middleware = [],
   enhancers = [],
-  reducer,
+  reducer = identity,
   initialState = Map()
 }) => {
   if (typeof reducer !== 'function') throw new Error('Invalid reducer option')
@@ -22,8 +24,8 @@ export default ({
     initialState,
     compose(
       applyMiddleware(thunk, ...middleware),
-      ...enhancers,
-      devtools
+      devtools,
+      ...enhancers
     )
   )
 }

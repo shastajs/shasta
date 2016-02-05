@@ -1,6 +1,6 @@
 {
   "name": "shasta",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Dead simple + opinionated toolkit for building redux/react applications",
   "main": "dist/index.js",
   "keywords": [
@@ -99,11 +99,15 @@
     }
   },
   "dependencies": {
-    "immutable": "^3.0.0",
     "babel-runtime": "^6.3.19",
+    "immutable": "^3.0.0",
+    "lodash.filter": "^4.0.2",
     "lodash.mapvalues": "^4.0.1",
+    "lodash.reduce": "^4.0.2",
+    "lodash.values": "^4.0.0",
     "react-immutable-proptypes": "^1.5.1",
     "react-redux": "^4.2.1",
+    "reduce-reducers": "^0.1.2",
     "redux": "^3.2.1",
     "redux-actions": "^0.9.1",
     "redux-immutablejs": "0.0.8",
