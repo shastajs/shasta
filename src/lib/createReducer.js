@@ -37,8 +37,8 @@ const createReducer = (o, ns) => {
     }
   }), isFunction)
 
-  if (hadReducer && typeof o.initialState === 'undefined') {
-    throw new Error(`Reducer "${ns || 'root'}" is missing an initialState`)
+  if (ns && hadReducer && typeof o.initialState === 'undefined') {
+    throw new Error(`Reducer "${ns}" is missing an initialState`)
   }
 
   const initialState = getInitialState(o)
