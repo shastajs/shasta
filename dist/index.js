@@ -27,13 +27,15 @@ var _inherits3 = _interopRequireDefault(_inherits2);
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.createStore = exports.createActions = exports.createReducer = exports.PropTypes = exports.Component = undefined;
+exports.createStore = exports.createActions = exports.createReducer = exports.combineReducers = exports.PropTypes = exports.Component = undefined;
 
 var _react = require('react');
 
 var _reactImmutableProptypes = require('react-immutable-proptypes');
 
 var _reactImmutableProptypes2 = _interopRequireDefault(_reactImmutableProptypes);
+
+var _reduxImmutablejs = require('redux-immutablejs');
 
 var _bindClass = require('./lib/bindClass');
 
@@ -93,6 +95,7 @@ exports.PropTypes = PropTypes;
 exports.
 
 // guts
-createReducer = _createReducer2.default;
+combineReducers = _reduxImmutablejs.combineReducers;
+exports.createReducer = _createReducer2.default;
 exports.createActions = _createActions2.default;
 exports.createStore = _createStore2.default;
