@@ -48,4 +48,24 @@ describe('createReducer', () => {
     reducer(initialState, { type: 'another.counter.increment' }).getIn([ 'another', 'counter', 'count' ]).should.equal(2)
     reducer(initialState, { type: 'another.counter.decrement' }).getIn([ 'another', 'counter', 'count' ]).should.equal(0)
   })
+  it('should combine a really really nested reducer', () => {
+    let reducer = createReducer({
+      another: {
+        another: {
+          another: {
+            counter: {
+              initialState: Map({ count: 1 }),
+              increment: (v) => v.update('count', v => ++v),
+              decrement: (v) => v.update('count', v => --v)
+            }
+          }
+        }
+      }
+    })
+    let initialState = undefined
+    should.exist(reducer)
+    reducer.should.be.a.function
+    reducer(initialState, { type: 'another.another.another.counter.increment' }).getIn([ 'another', 'another', 'another', 'counter', 'count' ]).should.equal(2)
+    reducer(initialState, { type: 'another.another.another.counter.decrement' }).getIn([ 'another', 'another', 'another', 'counter', 'count' ]).should.equal(0)
+  })
 })
