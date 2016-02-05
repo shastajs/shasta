@@ -5,7 +5,7 @@
 - [Getting Started](docs/GettingStarted.md)
 
 - [createStore()](docs/createStore.md)
-- [combineReducers()](docs/combineReducers.md)
+- [createReducer()](docs/createReducer.md)
 - [createActions()](docs/createActions.md)
 - [Component](docs/Component/README.md)
   - [storeProps](docs/Component/storeProps.md)

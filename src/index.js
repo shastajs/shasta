@@ -1,10 +1,10 @@
 import { Component, PropTypes as RPropTypes } from 'react'
-import { combineReducers } from 'redux-immutablejs'
 import IPropTypes from 'react-immutable-proptypes'
 import bindClass from './lib/bindClass'
 import connect from './connect'
 import createStore from './createStore'
 import createActions from './lib/createActions'
+import createReducer from './lib/createReducer'
 
 class ShastaComponent extends Component {
   static propTypes = {
@@ -33,7 +33,7 @@ export {
   PropTypes,
 
   // guts
-  combineReducers,
+  createReducer,
   createActions,
   createStore
 }
