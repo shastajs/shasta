@@ -40,9 +40,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var isFunction = function isFunction(v) {
   return typeof v === 'function';
-}; /*eslint no-console: 0*/
-// import { combineReducers } from 'redux-immutablejs'
-
+};
 var getInitialState = function getInitialState(o) {
   if (typeof o.initialState !== 'undefined') return o.initialState;
   return (0, _lodash6.default)(o, function (prev, v, k) {

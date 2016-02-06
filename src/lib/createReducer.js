@@ -1,5 +1,3 @@
-/*eslint no-console: 0*/
-// import { combineReducers } from 'redux-immutablejs'
 import { handleAction } from 'redux-actions'
 import reduceReducers from 'reduce-reducers'
 import mapValues from 'lodash.mapvalues'

@@ -1,11 +1,11 @@
 import { Component, PropTypes as RPropTypes } from 'react'
 import IPropTypes from 'react-immutable-proptypes'
-import { combineReducers } from 'redux-immutablejs'
 import bindClass from './lib/bindClass'
 import connect from './connect'
 import createStore from './createStore'
 import createActions from './lib/createActions'
 import createReducer from './lib/createReducer'
+import combineReducers from './lib/combineReducers'
 
 class ShastaComponent extends Component {
   static propTypes = {
