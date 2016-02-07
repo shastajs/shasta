@@ -51,7 +51,12 @@ const createReducer = (o, ns) => {
       return reducer(state, action)
     }
     const path = ns.split('.')
-    return state.setIn(path, reducer(state.getIn(path), action))
+    const currState = state.getIn(path)
+    const nodeState = typeof currState === 'undefined'
+      ? initialState
+      : currState
+
+    return state.setIn(path, reducer(nodeState, action))
   }
 }
 
