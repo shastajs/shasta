@@ -88,8 +88,10 @@ var createReducer = function createReducer(o, ns) {
       return reducer(state, action);
     }
     var path = ns.split('.');
-    console.log('setting ' + path + ' to', reducer(state.getIn(path), action));
-    return state.setIn(path, reducer(state.getIn(path), action));
+    var currState = state.getIn(path);
+    var nodeState = typeof currState === 'undefined' ? initialState : currState;
+
+    return state.setIn(path, reducer(nodeState, action));
   };
 };
 
