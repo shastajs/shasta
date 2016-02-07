@@ -47,14 +47,15 @@ const createReducer = (o, ns) => {
   const reducer = reduceReducers(...values(reducers))
 
   return (state = initialState, action = {}) => {
-    if (typeof ns === 'undefined' || !hadReducer) {
-      return reducer(state, action)
-    }
-    const path = ns.split('.')
-    const currState = state.getIn(path)
+    const path = ns ? ns.split('.') : undefined
+    const currState = path ? state.getIn(path) : state
     const nodeState = typeof currState === 'undefined'
       ? initialState
       : currState
+
+    if (typeof ns === 'undefined' || !hadReducer) {
+      return reducer(nodeState, action)
+    }
 
     return state.setIn(path, reducer(nodeState, action))
   }

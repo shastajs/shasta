@@ -84,12 +84,13 @@ var createReducer = function createReducer(o, ns) {
     var state = arguments.length <= 0 || arguments[0] === undefined ? initialState : arguments[0];
     var action = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
 
-    if (typeof ns === 'undefined' || !hadReducer) {
-      return reducer(state, action);
-    }
-    var path = ns.split('.');
-    var currState = state.getIn(path);
+    var path = ns ? ns.split('.') : undefined;
+    var currState = path ? state.getIn(path) : state;
     var nodeState = typeof currState === 'undefined' ? initialState : currState;
+
+    if (typeof ns === 'undefined' || !hadReducer) {
+      return reducer(nodeState, action);
+    }
 
     return state.setIn(path, reducer(nodeState, action));
   };
