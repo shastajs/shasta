@@ -50,13 +50,12 @@ var getInitialState = function getInitialState(o, ns) {
     if (k === 'initialState') return prev;
     var name = ns ? ns + '.' + k : k;
 
-    if (typeof prev.get(k) !== 'undefined') {
-      throw new Error('Reducer "' + name + '" has an initialState conflict with it\'s parent: "' + k + '"');
-    }
-
     if ((typeof v === 'undefined' ? 'undefined' : (0, _typeof3.default)(v)) === 'object') {
       if (!_immutable.Map.isMap(prev)) {
         throw new Error('Reducer "' + (ns || 'root') + '" has a non-map initialState, so it can\'t have children');
+      }
+      if (typeof prev.get(k) !== 'undefined') {
+        throw new Error('Reducer "' + (ns || 'root') + '" has an initialState conflict with it\'s parent over "' + k + '"');
       }
       return prev.set(k, getInitialState(v, name));
     }

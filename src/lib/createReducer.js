@@ -16,13 +16,12 @@ const getInitialState = (o, ns) => {
     if (k === 'initialState') return prev
     const name = ns ? `${ns}.${k}` : k
 
-    if (typeof prev.get(k) !== 'undefined') {
-      throw new Error(`Reducer "${name}" has an initialState conflict with it's parent: "${k}"`)
-    }
-
     if (typeof v === 'object') {
       if (!Map.isMap(prev)) {
         throw new Error(`Reducer "${ns || 'root'}" has a non-map initialState, so it can't have children`)
+      }
+      if (typeof prev.get(k) !== 'undefined') {
+        throw new Error(`Reducer "${ns || 'root'}" has an initialState conflict with it's parent over "${k}"`)
       }
       return prev.set(k, getInitialState(v, name))
     }
