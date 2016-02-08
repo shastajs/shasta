@@ -14,11 +14,12 @@ const isFunction = v => typeof v === 'function'
 const getInitialState = (o, ns) => {
   return reduce(o, (prev, v, k) => {
     if (k === 'initialState') return prev
+    const name = ns ? `${ns}.${k}` : k
+
     if (typeof prev.get(k) !== 'undefined') {
-      throw new Error(`Reducer "${ns || 'root'}" has a conflict with it's parent: initialState.${k}`)
+      throw new Error(`Reducer "${name}" has an initialState conflict with it's parent: "${k}"`)
     }
 
-    const name = ns ? `${ns}.${k}` : k
     if (typeof v === 'object') {
       if (!Map.isMap(prev)) {
         throw new Error(`Reducer "${ns || 'root'}" has a non-map initialState, so it can't have children`)

@@ -48,11 +48,12 @@ var isFunction = function isFunction(v) {
 var getInitialState = function getInitialState(o, ns) {
   return (0, _lodash6.default)(o, function (prev, v, k) {
     if (k === 'initialState') return prev;
+    var name = ns ? ns + '.' + k : k;
+
     if (typeof prev.get(k) !== 'undefined') {
-      throw new Error('Reducer "' + (ns || 'root') + '" has a conflict with it\'s parent: initialState.' + k);
+      throw new Error('Reducer "' + name + '" has an initialState conflict with it\'s parent: "' + k + '"');
     }
 
-    var name = ns ? ns + '.' + k : k;
     if ((typeof v === 'undefined' ? 'undefined' : (0, _typeof3.default)(v)) === 'object') {
       if (!_immutable.Map.isMap(prev)) {
         throw new Error('Reducer "' + (ns || 'root') + '" has a non-map initialState, so it can\'t have children');
