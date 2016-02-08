@@ -127,4 +127,36 @@ describe('combineReducers', () => {
       }
     })
   })
+  it('should a plain function and an immutable reducer', () => {
+    let firstReducer = (s = Map(), action = {}) => {
+      if (action.type === 'increment') {
+        if (s.has('laCuenta')) {
+          return s.update('laCuenta', v => ++v)
+        } else {
+          return s.set('laCuenta', 1)
+        }
+      }
+      return s
+    }
+    let secondReducer = createReducer({
+      otherCounter: {
+        initialState: Map({ count: 1 }),
+        increment: (v) => v.update('count', v => ++v),
+        decrement: (v) => v.update('count', v => --v)
+      }
+    })
+    let reducer = combineReducers(secondReducer, firstReducer)
+    let currState = undefined
+    should.exist(reducer)
+    reducer.should.be.a.function
+    currState = reducer(currState, { type: 'increment' })
+    currState = reducer(currState, { type: 'increment' })
+    currState = reducer(currState, { type: 'otherCounter.decrement' })
+    currState.toJS().should.eql({
+      laCuenta: 2,
+      otherCounter: {
+        count: 0
+      }
+    })
+  })
 })
