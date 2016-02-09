@@ -1,5 +1,9 @@
 'use strict';
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
 var _toConsumableArray2 = require('babel-runtime/helpers/toConsumableArray');
 
 var _toConsumableArray3 = _interopRequireDefault(_toConsumableArray2);
@@ -7,10 +11,6 @@ var _toConsumableArray3 = _interopRequireDefault(_toConsumableArray2);
 var _typeof2 = require('babel-runtime/helpers/typeof');
 
 var _typeof3 = _interopRequireDefault(_typeof2);
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
 
 var _reduxActions = require('redux-actions');
 

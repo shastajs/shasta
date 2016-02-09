@@ -12,7 +12,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 exports.default = function (view) {
   return function (storeState, ownProps) {
-    if (!view.storeProps) return {}; // nothing to do
+    // nothing to do
+    if (!view.storeProps) return {};
     return (0, _resolveStoreProps2.default)(view.storeProps, storeState, ownProps);
   };
 };

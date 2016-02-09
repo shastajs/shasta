@@ -1,4 +1,5 @@
 import { Component, PropTypes as RPropTypes } from 'react'
+import { Provider } from 'react-redux'
 import IPropTypes from 'react-immutable-proptypes'
 import bindClass from './lib/bindClass'
 import connect from './connect'
@@ -12,9 +13,13 @@ class ShastaComponent extends Component {
     actions: RPropTypes.object.isRequired
   };
   static connect = connect;
+  static defaultState = {};
   constructor() {
     super(...arguments)
-    this.state = this.constructor.defaultState || {}
+    this.state = {
+      ...this.constructor.defaultState,
+      ...this.state
+    }
     bindClass(this)
   }
 
@@ -32,8 +37,7 @@ const PropTypes = {
 export {
   ShastaComponent as Component,
   PropTypes,
-
-  // guts
+  Provider,
   combineReducers,
   createReducer,
   createActions,

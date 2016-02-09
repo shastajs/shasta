@@ -1,5 +1,10 @@
 'use strict';
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.createStore = exports.createActions = exports.createReducer = exports.combineReducers = exports.Provider = exports.PropTypes = exports.Component = undefined;
+
 var _extends2 = require('babel-runtime/helpers/extends');
 
 var _extends3 = _interopRequireDefault(_extends2);
@@ -24,12 +29,9 @@ var _inherits2 = require('babel-runtime/helpers/inherits');
 
 var _inherits3 = _interopRequireDefault(_inherits2);
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.createStore = exports.createActions = exports.createReducer = exports.combineReducers = exports.PropTypes = exports.Component = undefined;
-
 var _react = require('react');
+
+var _reactRedux = require('react-redux');
 
 var _reactImmutableProptypes = require('react-immutable-proptypes');
 
@@ -69,12 +71,13 @@ var ShastaComponent = function (_Component) {
 
     var _this = (0, _possibleConstructorReturn3.default)(this, (0, _getPrototypeOf2.default)(ShastaComponent).apply(this, arguments));
 
-    _this.state = _this.constructor.defaultState || {};
+    _this.state = (0, _extends3.default)({}, _this.constructor.defaultState, _this.state);
     (0, _bindClass2.default)(_this);
     return _this;
   }
 
   // sugar accessors
+
 
   (0, _createClass3.default)(ShastaComponent, [{
     key: 'actions',
@@ -89,15 +92,15 @@ ShastaComponent.propTypes = {
   actions: _react.PropTypes.object.isRequired
 };
 ShastaComponent.connect = _connect2.default;
+ShastaComponent.defaultState = {};
+
 
 var PropTypes = (0, _extends3.default)({}, _react.PropTypes, _reactImmutableProptypes2.default);
 
 exports.Component = ShastaComponent;
 exports.PropTypes = PropTypes;
-exports.
-
-// guts
-combineReducers = _combineReducers2.default;
+exports.Provider = _reactRedux.Provider;
+exports.combineReducers = _combineReducers2.default;
 exports.createReducer = _createReducer2.default;
 exports.createActions = _createActions2.default;
 exports.createStore = _createStore2.default;

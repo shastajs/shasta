@@ -68,6 +68,26 @@ describe('createReducer', () => {
     reducer(initialState, { type: 'another.another.another.counter.increment' }).getIn([ 'another', 'another', 'another', 'counter', 'count' ]).should.equal(2)
     reducer(initialState, { type: 'another.another.another.counter.decrement' }).getIn([ 'another', 'another', 'another', 'counter', 'count' ]).should.equal(0)
   })
+  it('should init with root state', () => {
+    let reducer = createReducer({
+      counter: {
+        initialState: Map({ count: 1 }),
+        increment: (v) => v.update('count', v => ++v),
+        decrement: (v) => v.update('count', v => --v)
+      }
+    })
+    let initialState = Map({
+      test: 123
+    })
+    should.exist(reducer)
+    reducer.should.be.a.function
+    reducer(initialState, { type: 'INIT' }).toJS().should.eql({
+      counter: {
+        count: 1
+      },
+      test: 123
+    })
+  })
   it('should work with empty root state', () => {
     let reducer = createReducer({
       counter: {

@@ -1,6 +1,7 @@
 import resolve from '../lib/resolveStoreProps'
 
 export default (view) => (storeState, ownProps) => {
-  if (!view.storeProps) return {} // nothing to do
+  // nothing to do
+  if (!view.storeProps) return {}
   return resolve(view.storeProps, storeState, ownProps)
 }

@@ -107,11 +107,11 @@
     "lodash.reduce": "^4.0.2",
     "lodash.values": "^4.0.0",
     "react-immutable-proptypes": "^1.5.1",
-    "react-redux": "^4.2.1",
+    "react-redux": "^4.4.0",
     "reduce-reducers": "^0.1.2",
     "redux": "^3.2.1",
     "redux-actions": "^0.9.1",
-    "redux-immutablejs": "0.0.8",
+    "redux-immutablejs": "contra/redux-immutablejs",
     "redux-thunk": "^1.0.3"
   }
 }

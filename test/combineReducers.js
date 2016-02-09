@@ -36,6 +36,64 @@ describe('combineReducers', () => {
       }
     })
   })
+  it('should combine and init an immutable reducer and an object', () => {
+    let firstReducer = createReducer({
+      counter: {
+        initialState: Map({ count: 1 }),
+        increment: (v) => v.update('count', v => ++v),
+        decrement: (v) => v.update('count', v => --v)
+      }
+    })
+    let secondReducer = {
+      increment: (v = 1, action = {}) => {
+        console.log(v)
+        if (action.type === 'increment') {
+          return ++v
+        }
+        return v
+      }
+    }
+    let reducer = combineReducers(firstReducer, secondReducer)
+    let currState = undefined
+    should.exist(reducer)
+    reducer.should.be.a.function
+    currState = reducer(currState, { type: 'init' })
+    currState.toJS().should.eql({
+      counter: {
+        count: 1
+      },
+      increment: 1
+    })
+  })
+  it('should combine and init an immutable reducer and an object from existing state', () => {
+    let firstReducer = createReducer({
+      counter: {
+        initialState: Map({ count: 1 }),
+        increment: (v) => v.update('count', v => ++v),
+        decrement: (v) => v.update('count', v => --v)
+      }
+    })
+    let secondReducer = {
+      increment: (v = 1, action = {}) => {
+        console.log(v)
+        if (action.type === 'increment') {
+          return ++v
+        }
+        return v
+      }
+    }
+    let reducer = combineReducers(firstReducer, secondReducer)
+    let currState = Map()
+    should.exist(reducer)
+    reducer.should.be.a.function
+    currState = reducer(currState, { type: 'init' })
+    currState.toJS().should.eql({
+      counter: {
+        count: 1
+      },
+      increment: 1
+    })
+  })
   it('should combine two immutable reducer functions', () => {
     let firstReducer = createReducer({
       counter: {
@@ -66,7 +124,7 @@ describe('combineReducers', () => {
       }
     })
   })
-  it('should an immutable reducer and an object', () => {
+  it('should combine an immutable reducer and an object', () => {
     let firstReducer = {
       increment: (v = 1, action = {}) => {
         if (action.type === 'increment') {

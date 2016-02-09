@@ -1,12 +1,12 @@
 'use strict';
 
-var _getOwnPropertyNames = require('babel-runtime/core-js/object/get-own-property-names');
-
-var _getOwnPropertyNames2 = _interopRequireDefault(_getOwnPropertyNames);
-
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+
+var _getOwnPropertyNames = require('babel-runtime/core-js/object/get-own-property-names');
+
+var _getOwnPropertyNames2 = _interopRequireDefault(_getOwnPropertyNames);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
