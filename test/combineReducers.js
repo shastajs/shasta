@@ -46,7 +46,6 @@ describe('combineReducers', () => {
     })
     let secondReducer = {
       increment: (v = 1, action = {}) => {
-        console.log(v)
         if (action.type === 'increment') {
           return ++v
         }
@@ -75,7 +74,6 @@ describe('combineReducers', () => {
     })
     let secondReducer = {
       increment: (v = 1, action = {}) => {
-        console.log(v)
         if (action.type === 'increment') {
           return ++v
         }

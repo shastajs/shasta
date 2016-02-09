@@ -6,6 +6,7 @@ import connect from './connect'
 import createStore from './createStore'
 import createActions from './lib/createActions'
 import createReducer from './lib/createReducer'
+import createReducerActions from './lib/createReducerActions'
 import combineReducers from './lib/combineReducers'
 
 class ShastaComponent extends Component {
@@ -40,6 +41,7 @@ export {
   Provider,
   combineReducers,
   createReducer,
+  createReducerActions,
   createActions,
   createStore
 }
