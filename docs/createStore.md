@@ -1,5 +1,7 @@
 # createStore()
 
+**This documentation is incomplete and changing frequently, you probably shouldn't be looking at this yet!**
+
 A store holds the entire state tree of your application.
 
 The only way to change the state inside it is to dispatch an action on it, which triggers a reducer to modify the state in an immutable way.
@@ -34,32 +36,43 @@ const store = createStore({
   - Optional (defaults to `[]`)
   - Expects an array of store enhancer functions
     - Store enhancers allow you to plug in third-party capabilities like time travel, persistence, etc.
+- `hooks`
+  - Optional (defaults to `[]`)
+  - Expects an array of hook functions
+    - Hooks are called after the store has being created
+    - Hooks receive one argument, the store instance
+- `plugins`
+  - Optional (defaults to `[]`)
+  - Expects an array of plugin objects
+    - Plugins can export any combination of middleware, reducers, hooks, and enhancers
+    - This removes a ridiculous amount of boilerplate where you have to individually wire up every piece of a module you want to use
 
 ## Example
 
 ```js
-import { createStore, combineReducers } from 'shasta'
-import {
-  reducer as routerReducer,
-  middleware as routerMiddleware,
-  listenForReplays
-} from 'shasta-router'
+import { createStore, createReducer } from 'shasta'
+import { List, Map } from 'immutable'
+import * as router from 'shasta-router'
 
-const reducer = combineReducers({
+const reducer = createReducer({
   counter: {
-    increment: (state) => ++state,
-    decrement: (state) => --state,
+    initialState: Map({ count: 0 }),
+    increment: (state) => state.update('count', v => ++v),
+    decrement: (state) => state.update('count', v => --v),
   },
-  router: routerReducer
+  people: {
+    initialState: List(),
+    add: (state, user) => state.push(user)
+  }
 })
 
 const store = createStore({
-  reducer: reducer,
-  initialState: Map({
-    counter: 123
-  }),
-  enhancers: [ listenForReplays ],
-  middleware: [ routerMiddleware ]
+  reducers: [
+    reducer
+  ],
+  plugins: [
+    router
+  ]
 })
 ```
 
