@@ -6,6 +6,7 @@
 
 - [createStore()](docs/createStore.md)
 - [createReducer()](docs/createReducer.md)
+- [createReducerActions()](docs/createReducerActions.md)
 - [createActions()](docs/createActions.md)
 - [Component](docs/Component/README.md)
   - [storeProps](docs/Component/storeProps.md)

@@ -44,7 +44,7 @@ const store = createStore({
 - `plugins`
   - Optional (defaults to `[]`)
   - Expects an array of plugin objects
-    - Plugins can export any combination of middleware, reducers, hooks, and enhancers
+    - [Plugins](docs/Plugins.md) can export any combination of middleware, reducers, hooks, and enhancers
     - This removes a ridiculous amount of boilerplate where you have to individually wire up every piece of a module you want to use
 
 ## Example
