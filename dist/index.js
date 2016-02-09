@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.createStore = exports.createActions = exports.createReducer = exports.combineReducers = exports.Provider = exports.PropTypes = exports.Component = undefined;
+exports.createStore = exports.createActions = exports.createReducerActions = exports.createReducer = exports.combineReducers = exports.Provider = exports.PropTypes = exports.Component = undefined;
 
 var _extends2 = require('babel-runtime/helpers/extends');
 
@@ -57,6 +57,10 @@ var _createReducer = require('./lib/createReducer');
 
 var _createReducer2 = _interopRequireDefault(_createReducer);
 
+var _createReducerActions = require('./lib/createReducerActions');
+
+var _createReducerActions2 = _interopRequireDefault(_createReducerActions);
+
 var _combineReducers = require('./lib/combineReducers');
 
 var _combineReducers2 = _interopRequireDefault(_combineReducers);
@@ -102,5 +106,6 @@ exports.PropTypes = PropTypes;
 exports.Provider = _reactRedux.Provider;
 exports.combineReducers = _combineReducers2.default;
 exports.createReducer = _createReducer2.default;
+exports.createReducerActions = _createReducerActions2.default;
 exports.createActions = _createActions2.default;
 exports.createStore = _createStore2.default;

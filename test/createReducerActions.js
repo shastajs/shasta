@@ -36,4 +36,22 @@ describe('createReducerActions', () => {
     actions.counter.increment(1).should.eql({ type: 'counter.increment', payload: 1 })
     actions.counter.decrement(1).should.eql({ type: 'counter.decrement', payload: 1 })
   })
+  it('should create actions for a really nested reducer', () => {
+    let reducer = {
+      yo: {
+        counter: {
+          initialState: Map({ count: 1 }),
+          increment: (v) => v.update('count', v => ++v),
+          decrement: (v) => v.update('count', v => --v)
+        }
+      }
+    }
+    let actions = createReducerActions(reducer)
+    should.exist(actions.yo.counter.increment)
+    should.exist(actions.yo.counter.decrement)
+    actions.yo.counter.increment().should.eql({ type: 'yo.counter.increment', payload: undefined })
+    actions.yo.counter.decrement().should.eql({ type: 'yo.counter.decrement', payload: undefined })
+    actions.yo.counter.increment(1).should.eql({ type: 'yo.counter.increment', payload: 1 })
+    actions.yo.counter.decrement(1).should.eql({ type: 'yo.counter.decrement', payload: 1 })
+  })
 })
