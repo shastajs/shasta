@@ -4,7 +4,7 @@ A store holds the entire state tree of your application.
 
 The only way to change the state inside it is to dispatch an action on it, which triggers a reducer to modify the state in an immutable way.
 
-To create it, pass your root reducer and some other options to it:
+To create it, pass a root reducer and some other options to it:
 
 ```js
 const store = createStore({
@@ -22,8 +22,8 @@ const store = createStore({
 - `initialState`
   - Optional (defaults to `Map()`)
   - Expects an Immutable.js type
-    - Any type is cool, but you probably want a Map
-    - This is the initial state of your store
+    - You probably want to use a `Map()` here
+  - This is the initial state of your store passed to your reducers
 - `reducers`
   - Optional (defaults to `[]`)
   - Expects an array of reducer functions or reducer objects
