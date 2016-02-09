@@ -1,7 +1,5 @@
 # createStore()
 
-**This documentation is incomplete and changing frequently, you probably shouldn't be looking at this yet!**
-
 A store holds the entire state tree of your application.
 
 The only way to change the state inside it is to dispatch an action on it, which triggers a reducer to modify the state in an immutable way.
@@ -10,7 +8,9 @@ To create it, pass your root reducer and some other options to it:
 
 ```js
 const store = createStore({
-  reducer: reducerFunction,
+  reducers: [
+    reducerFunction
+  ],
   initialState: Map({
     someStuff: 'yep'
   })
@@ -27,7 +27,7 @@ const store = createStore({
 - `reducers`
   - Optional (defaults to `[]`)
   - Expects an array of reducer functions or reducer objects
-  - This array is passed directly to [`combineReducers`](docs/combineReducers.md) to create the final reducer function
+  - This array is passed directly to [`combineReducers`](../combineReducers.md) to create the final reducer function
 - `middleware`
   - Optional (defaults to `[]`)
   - Expects an array of middleware functions
@@ -44,7 +44,7 @@ const store = createStore({
 - `plugins`
   - Optional (defaults to `[]`)
   - Expects an array of plugin objects
-    - [Plugins](docs/Plugins.md) can export any combination of middleware, reducers, hooks, and enhancers
+    - [Plugins](../Plugins.md) can export any combination of middleware, reducers, hooks, and enhancers
     - This removes a ridiculous amount of boilerplate where you have to individually wire up every piece of a module you want to use
 
 ## Example
