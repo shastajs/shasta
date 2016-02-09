@@ -17,15 +17,15 @@ const store = createStore({
 
 ## Options
 
-- `reducer`
-  - Required
-  - Expects a reducer function that handles actions
-  - You probably want to use [`combineReducers`](docs/combineReducers.md) to create this function
 - `initialState`
   - Optional (defaults to `Map()`)
   - Expects an Immutable.js type
     - Any type is cool, but you probably want a Map
     - This is the initial state of your store
+- `reducers`
+  - Optional (defaults to `[]`)
+  - Expects an array of reducer functions or reducer objects
+  - This array is passed directly to [`combineReducers`](docs/combineReducers.md) to create the final reducer function
 - `middleware`
   - Optional (defaults to `[]`)
   - Expects an array of middleware functions
