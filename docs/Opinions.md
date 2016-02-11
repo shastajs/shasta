@@ -12,9 +12,11 @@
 - Central store is completely immutable via Immutable.js
   - PropTypes include Immutable.js types by default
   - Shasta plugins and components rely on this immutability
-- Easy to understand objects instead of functional composition
-  - Before: `createStore(combineReducers(reducers), initialState, compose(applyMiddleware(middleware), devtools))`
-  - After: `createStore({middleware: [], initialState: {}, reducer: fn})`
+- Easy to understand objects instead of crazy functional composition
+  - Before: `createStore(combineReducers(reducers), {}, compose(applyMiddleware(middleware), devtools))`
+  - After: `createStore({middleware: middleware, reducers: reducers, initialState: {}})`
+- Bundle middleware, enhancers, and reducers together as drop in "plugins"
+  - One line of code to add a [router](https://github.com/shastajs/shasta-router), [logger](https://github.com/shastajs/shasta-logger), [forms](https://github.com/shastajs/shasta-forms), etc. to your project
 - Namespaced/nested actions and reducers
   - `todos.create` as an action corresponds to a `todos.create` reducer and `todos` in the store
 - Default middleware
