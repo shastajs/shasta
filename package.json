@@ -1,0 +1,118 @@
+{
+  "name": "shasta",
+  "version": "0.0.1",
+  "description": "Dead simple + opinionated toolkit for building redux/react applications",
+  "main": "dist/index.js",
+  "keywords": [
+    "react",
+    "redux",
+    "immutable",
+    "stack",
+    "toolkit",
+    "framework",
+    "shastajs"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shastajs/shasta.git"
+  },
+  "author": "Contra <yo@contra.io> (http://contra.io)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shastajs/shasta/issues"
+  },
+  "homepage": "https://github.com/shastajs/shasta#readme",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "preversion": "npm run clean && npm run build && npm docs",
+    "postversion": "npm run changelog",
+    "build": "babel src --out-dir dist",
+    "clean": "rimraf dist",
+    "lint": "eslint src",
+    "changelog": "github-changes -o contra -r shasta -b master -f ./CHANGELOG.md --order-semver --use-commit-body",
+    "test": "npm run-script lint && npm run test:node && npm run test:browser",
+    "test:node": "mocha --compilers js:babel-register --recursive --reporter spec",
+    "test:browser": "mochify --transform babelify --recursive --reporter spec",
+    "docs": "npm run docs:pre && npm run docs:build && npm run docs:publish",
+    "docs:pre": "gitbook install && rimraf _book",
+    "docs:build": "gitbook build -g shastajs/shasta",
+    "docs:publish": "cd _book && git init && git commit --allow-empty -m 'update book' && git checkout -b gh-pages && touch .nojekyll && git add . && git commit -am 'update book' && git push git@github.com:shastajs/shasta gh-pages --force"
+  },
+  "peerDependencies": {
+    "react": "^0.14.0"
+  },
+  "devDependencies": {
+    "babel": "^6.3.26",
+    "babel-cli": "^6.4.0",
+    "babel-core": "^6.4.0",
+    "babel-eslint": "^4.1.6",
+    "babel-loader": "^6.2.1",
+    "babel-plugin-add-module-exports": "^0.1.2",
+    "babel-plugin-transform-runtime": "^6.4.3",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-es2015-loose": "^7.0.0",
+    "babel-preset-react": "^6.3.13",
+    "babel-preset-stage-0": "^6.3.13",
+    "babel-register": "^6.4.3",
+    "babelify": "^7.2.0",
+    "eslint": "^1.10.3",
+    "eslint-cli": "^1.0.0",
+    "eslint-config-rackt": "^1.1.1",
+    "eslint-plugin-react": "^3.15.0",
+    "gitbook-cli": "^1.0.1",
+    "github-changes": "^1.0.1",
+    "mocha": "^2.3.4",
+    "mochify": "dylanfm/mochify.js",
+    "react": "^0.14.7",
+    "rimraf": "^2.5.0",
+    "should": "^8.0.0"
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "react",
+      "stage-0"
+    ],
+    "plugins": [
+      "transform-runtime",
+      "add-module-exports"
+    ]
+  },
+  "eslintConfig": {
+    "parser": "babel-eslint",
+    "extends": "rackt",
+    "env": {
+      "browser": true,
+      "node": true,
+      "es6": true
+    },
+    "ecmaFeatures": {
+      "modules": true
+    },
+    "rules": {
+      "semi": [
+        2,
+        "never"
+      ]
+    }
+  },
+  "dependencies": {
+    "babel-runtime": "^6.3.19",
+    "immutable": "^3.0.0",
+    "lodash.filter": "^4.0.2",
+    "lodash.foreach": "^4.0.0",
+    "lodash.map": "^4.0.2",
+    "lodash.mapvalues": "^4.0.1",
+    "lodash.reduce": "^4.0.2",
+    "lodash.values": "^4.0.0",
+    "react-immutable-proptypes": "^1.5.1",
+    "react-redux": "^4.4.0",
+    "reduce-reducers": "^0.1.2",
+    "redux": "^3.2.1",
+    "redux-actions": "^0.9.1",
+    "redux-immutablejs": "contra/redux-immutablejs",
+    "redux-thunk": "^1.0.3"
+  }
+}
