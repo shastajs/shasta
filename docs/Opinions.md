@@ -17,12 +17,12 @@
   - After: `createStore({middleware: middleware, reducers: reducers, initialState: {}})`
 - Bundle middleware, enhancers, and reducers together as drop in "plugins"
   - One line of code to add a [router](https://github.com/shastajs/shasta-router), [logger](https://github.com/shastajs/shasta-logger), [forms](https://github.com/shastajs/shasta-forms), etc. to your project
+  - High quality ecosystem of modules guaranteed to work well with eachother
 - Namespaced/nested actions and reducers
   - `todos.create` as an action corresponds to a `todos.create` reducer and `todos` in the store
 - Default middleware
   - thunk
   - devtools
-- Ecosystem of plug-and-play modules
 - Dead simple Component API
   - Use ES6 classes [(not using them is deprecated anyways)](http://www.newmediacampaigns.com/blog/refactoring-react-components-to-es6-classes)
   - Bring back sane behavior
