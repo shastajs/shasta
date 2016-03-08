@@ -16,7 +16,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 // supports array of strings, strings with dot, or function
 var lookup = function lookup(o, k, args) {
-  if (typeof k === 'function') return k.apply(undefined, [o].concat((0, _toConsumableArray3.default)(args)));
+  if (typeof k === 'function') return k.apply(undefined, (0, _toConsumableArray3.default)(args));
   if (typeof k === 'string') return o.getIn(k.split('.'));
   if (Array.isArray(k)) return o.getIn(k);
   throw new Error('Unknown lookup key: ' + k);

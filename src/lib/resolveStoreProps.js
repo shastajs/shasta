@@ -2,7 +2,7 @@ import mapValues from 'lodash.mapvalues'
 
 // supports array of strings, strings with dot, or function
 const lookup = (o, k, args) => {
-  if (typeof k === 'function') return k(o, ...args)
+  if (typeof k === 'function') return k(...args)
   if (typeof k === 'string') return o.getIn(k.split('.'))
   if (Array.isArray(k)) return o.getIn(k)
   throw new Error(`Unknown lookup key: ${k}`)
