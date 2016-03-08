@@ -1,13 +1,12 @@
 import mapValues from 'lodash.mapvalues'
 
-const getLookupKey = (o, k, args) => {
-  if (Array.isArray(k)) return k
-  if (typeof k === 'function') return getLookupKey(o, k(...args), args)
-  if (typeof k === 'string') return k.split('.')
+// supports array of strings, strings with dot, or function
+const lookup = (o, k, args) => {
+  if (typeof k === 'function') return k(o, ...args)
+  if (typeof k === 'string') return o.getIn(k.split('.'))
+  if (Array.isArray(k)) return o.getIn(k)
   throw new Error(`Unknown lookup key: ${k}`)
 }
-// supports array of strings, strings with dot, or function
-const lookup = (o, k, args) => o.getIn(getLookupKey(o, k, args))
 
 // takes an object where key is anything you want
 // and value (aka storeProp) is either
