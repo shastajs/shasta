@@ -1,19 +1,15 @@
-import { Component, PropTypes as RPropTypes } from 'react'
+import { Component as ReactComponent, PropTypes as RPropTypes } from 'react'
 import { Provider } from 'react-redux'
 import IPropTypes from 'react-immutable-proptypes'
 import bindClass from './lib/bindClass'
-import connect from './connect'
+import connect from './lib/connect'
 import createStore from './createStore'
 import createActions from './lib/createActions'
 import createReducer from './lib/createReducer'
 import createReducerActions from './lib/createReducerActions'
 import combineReducers from './lib/combineReducers'
 
-class ShastaComponent extends Component {
-  static propTypes = {
-    actions: RPropTypes.object.isRequired
-  };
-  static connect = connect;
+class ShastaComponent extends ReactComponent {
   static defaultState = {};
   constructor() {
     super(...arguments)
@@ -22,11 +18,6 @@ class ShastaComponent extends Component {
       ...this.state
     }
     bindClass(this)
-  }
-
-  // sugar accessors
-  get actions() {
-    return this.props.actions
   }
 }
 
@@ -37,6 +28,7 @@ const PropTypes = {
 
 export {
   ShastaComponent as Component,
+  connect,
   PropTypes,
   Provider,
   combineReducers,

@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.createStore = exports.createActions = exports.createReducerActions = exports.createReducer = exports.combineReducers = exports.Provider = exports.PropTypes = exports.Component = undefined;
+exports.createStore = exports.createActions = exports.createReducerActions = exports.createReducer = exports.combineReducers = exports.Provider = exports.PropTypes = exports.connect = exports.Component = undefined;
 
 var _extends2 = require('babel-runtime/helpers/extends');
 
@@ -16,10 +16,6 @@ var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
 
 var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
-
-var _createClass2 = require('babel-runtime/helpers/createClass');
-
-var _createClass3 = _interopRequireDefault(_createClass2);
 
 var _possibleConstructorReturn2 = require('babel-runtime/helpers/possibleConstructorReturn');
 
@@ -41,7 +37,7 @@ var _bindClass = require('./lib/bindClass');
 
 var _bindClass2 = _interopRequireDefault(_bindClass);
 
-var _connect = require('./connect');
+var _connect = require('./lib/connect');
 
 var _connect2 = _interopRequireDefault(_connect);
 
@@ -67,8 +63,8 @@ var _combineReducers2 = _interopRequireDefault(_combineReducers);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var ShastaComponent = function (_Component) {
-  (0, _inherits3.default)(ShastaComponent, _Component);
+var ShastaComponent = function (_ReactComponent) {
+  (0, _inherits3.default)(ShastaComponent, _ReactComponent);
 
   function ShastaComponent() {
     (0, _classCallCheck3.default)(this, ShastaComponent);
@@ -80,28 +76,16 @@ var ShastaComponent = function (_Component) {
     return _this;
   }
 
-  // sugar accessors
-
-
-  (0, _createClass3.default)(ShastaComponent, [{
-    key: 'actions',
-    get: function get() {
-      return this.props.actions;
-    }
-  }]);
   return ShastaComponent;
 }(_react.Component);
 
-ShastaComponent.propTypes = {
-  actions: _react.PropTypes.object.isRequired
-};
-ShastaComponent.connect = _connect2.default;
 ShastaComponent.defaultState = {};
 
 
 var PropTypes = (0, _extends3.default)({}, _react.PropTypes, _reactImmutableProptypes2.default);
 
 exports.Component = ShastaComponent;
+exports.connect = _connect2.default;
 exports.PropTypes = PropTypes;
 exports.Provider = _reactRedux.Provider;
 exports.combineReducers = _combineReducers2.default;

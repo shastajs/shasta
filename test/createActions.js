@@ -9,6 +9,8 @@ describe('createActions', () => {
     const actions = createActions({
       one: 'one',
       two: 'two'
+    }, (action) => {
+      should.exist(action)
     })
     should.exist(actions.one)
     should.exist(actions.two)
@@ -24,6 +26,8 @@ describe('createActions', () => {
       two: {
         half: 'two'
       }
+    }, (action) => {
+      should.exist(action)
     })
     should.exist(actions.one.half)
     should.exist(actions.two.half)
@@ -36,6 +40,8 @@ describe('createActions', () => {
     const actions = createActions({
       one: () => ({}),
       two: () => ({})
+    }, (action) => {
+      should.exist(action)
     })
     should.exist(actions.one)
     should.exist(actions.two)
