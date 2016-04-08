@@ -28,6 +28,8 @@ var _lodash = require('lodash.foreach');
 
 var _lodash2 = _interopRequireDefault(_lodash);
 
+var _reduxBatchedUpdates = require('redux-batched-updates');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var identity = function identity(v) {
@@ -36,7 +38,7 @@ var identity = function identity(v) {
 
 var devtools = typeof window !== 'undefined' && window.devToolsExtension ? window.devToolsExtension() : identity;
 
-var defaultMiddleware = [_reduxThunk2.default];
+var defaultMiddleware = [_reduxThunk2.default, _reduxBatchedUpdates.batchedUpdatesMiddleware];
 
 exports.default = function (_ref) {
   var _ref$plugins = _ref.plugins;

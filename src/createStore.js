@@ -4,6 +4,7 @@ import transformPlugins from './lib/transformPlugins'
 import { Map, Iterable } from 'immutable'
 import thunk from 'redux-thunk'
 import each from 'lodash.foreach'
+import { batchedUpdatesMiddleware } from 'redux-batched-updates'
 
 const identity = v => v
 
@@ -12,7 +13,8 @@ const devtools = typeof window !== 'undefined' && window.devToolsExtension
   : identity
 
 const defaultMiddleware = [
-  thunk
+  thunk,
+  batchedUpdatesMiddleware
 ]
 
 export default ({

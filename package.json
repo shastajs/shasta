@@ -100,7 +100,6 @@
   },
   "dependencies": {
     "babel-runtime": "^6.3.19",
-    "redux-immutablejs": "contra/redux-immutablejs",
     "immutable": "^3.0.0",
     "lodash.filter": "^4.0.2",
     "lodash.foreach": "^4.0.0",
@@ -113,6 +112,8 @@
     "reduce-reducers": "^0.1.2",
     "redux": "^3.2.1",
     "redux-actions": "^0.9.1",
+    "redux-batched-updates": "^0.1.0",
+    "redux-immutablejs": "contra/redux-immutablejs",
     "redux-thunk": "^2.0.1"
   }
 }

@@ -10,12 +10,11 @@
 
 - Use ES6
 - Central store is completely immutable via Immutable.js
-  - PropTypes include Immutable.js types by default
-  - Shasta plugins and components rely on this immutability
+  - And PropTypes include Immutable.js types by default
 - Easy to understand objects instead of crazy functional composition
   - Before: `createStore(combineReducers(reducers), {}, compose(applyMiddleware(middleware), devtools))`
   - After: `createStore({middleware: middleware, reducers: reducers, initialState: {}})`
-- Bundle middleware, enhancers, and reducers together as drop in "plugins"
+- Bundle groups of middleware, enhancers, and reducers together as "plugins"
   - One line of code to add a [router](https://github.com/shastajs/shasta-router), [logger](https://github.com/shastajs/shasta-logger), [forms](https://github.com/shastajs/shasta-forms), etc. to your project
   - High quality ecosystem of modules guaranteed to work well with eachother
 - Namespaced/nested actions and reducers
@@ -23,6 +22,7 @@
 - Default middleware
   - thunk
   - devtools
+  - redux-batched-updates to prevent [cascading renders](https://github.com/reactjs/redux/issues/125)
 - Dead simple Component API
   - Use ES6 classes [(not using them is deprecated anyways)](http://www.newmediacampaigns.com/blog/refactoring-react-components-to-es6-classes)
   - Bring back sane behavior
