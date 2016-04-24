@@ -9,12 +9,12 @@ const options = {
   withRef: true
 }
 
-export default (storeProps) => {
+export default (storeProps, opts) => {
   const connector = connect(
     storeProps ? mapStateToProps(storeProps) : null,
     null,
     null,
-    options
+    { ...options, ...opts }
   )
   return (Component) => {
     Component.storeProps = storeProps
