@@ -82,7 +82,7 @@ var ShastaComponent = function (_ReactComponent) {
 ShastaComponent.defaultState = {};
 
 
-var PropTypes = (0, _extends3.default)({}, _react.PropTypes, _reactImmutableProptypes2.default);
+var PropTypes = (0, _extends3.default)({}, _reactImmutableProptypes2.default, _react.PropTypes);
 
 exports.Component = ShastaComponent;
 exports.connect = _connect2.default;

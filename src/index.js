@@ -22,8 +22,8 @@ class ShastaComponent extends ReactComponent {
 }
 
 const PropTypes = {
-  ...RPropTypes,
-  ...IPropTypes
+  ...IPropTypes,
+  ...RPropTypes
 }
 
 export {

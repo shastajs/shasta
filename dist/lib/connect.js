@@ -4,6 +4,10 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _extends2 = require('babel-runtime/helpers/extends');
+
+var _extends3 = _interopRequireDefault(_extends2);
+
 var _reactRedux = require('react-redux');
 
 var _resolveStoreProps = require('./resolveStoreProps');
@@ -23,8 +27,8 @@ var options = {
   withRef: true
 };
 
-exports.default = function (storeProps) {
-  var connector = (0, _reactRedux.connect)(storeProps ? mapStateToProps(storeProps) : null, null, null, options);
+exports.default = function (storeProps, opts) {
+  var connector = (0, _reactRedux.connect)(storeProps ? mapStateToProps(storeProps) : null, null, null, (0, _extends3.default)({}, options, opts));
   return function (Component) {
     Component.storeProps = storeProps;
     return connector(Component);
