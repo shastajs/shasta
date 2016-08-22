@@ -1,4 +1,5 @@
 import mapValues from 'lodash.mapvalues'
+import filter from 'lodash.filter'
 
 // supports array of strings, strings with dot, or function
 const lookup = (o, k, args) => {
@@ -16,6 +17,6 @@ const lookup = (o, k, args) => {
 // it will then dive into an immutable object and grab all of these storeProps
 // and return the same object, but where the values are the resolved data
 export default (storeProps, storeState, props) =>
-  mapValues(storeProps, (v) =>
+  filter(mapValues(storeProps, (v) =>
     lookup(storeState, v, [ storeState, props ])
-  )
+  ), (v) => typeof v !== 'undefined')
