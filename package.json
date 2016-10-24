@@ -1,6 +1,6 @@
 {
   "name": "shasta",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Dead simple + opinionated toolkit for building redux/react applications",
   "main": "dist/index.js",
   "keywords": [
@@ -101,7 +101,7 @@
     }
   },
   "dependencies": {
-    "babel-runtime": "^6.3.19",
+    "babel-runtime": "^6.11.6",
     "immutable": "^3.0.0",
     "lodash.filter": "^4.0.2",
     "lodash.foreach": "^4.0.0",
