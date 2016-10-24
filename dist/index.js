@@ -69,7 +69,7 @@ var ShastaComponent = function (_ReactComponent) {
   function ShastaComponent() {
     (0, _classCallCheck3.default)(this, ShastaComponent);
 
-    var _this = (0, _possibleConstructorReturn3.default)(this, (0, _getPrototypeOf2.default)(ShastaComponent).apply(this, arguments));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (ShastaComponent.__proto__ || (0, _getPrototypeOf2.default)(ShastaComponent)).apply(this, arguments));
 
     _this.state = (0, _extends3.default)({}, _this.constructor.defaultState, _this.state);
     (0, _bindClass2.default)(_this);

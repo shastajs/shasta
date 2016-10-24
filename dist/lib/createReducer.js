@@ -69,7 +69,7 @@ var createReducerNode = function createReducerNode(_ref) {
   var reducer = _ref.reducer;
   var initialState = _ref.initialState;
   return function (state) {
-    var action = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
+    var action = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 
     // if we are the reducer container, pass them our cherry-picked state
     // otherwise pass down the full state to the next container
