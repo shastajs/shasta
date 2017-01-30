@@ -49,4 +49,24 @@ describe('createActions', () => {
     actions.one(1).should.eql({})
     actions.two(2).should.eql({})
   })
+  it('should create from a flat function object with attrs', () => {
+    const fn = () => ({})
+    fn.attr = true
+    fn.ya = false
+    const actions = createActions({
+      one: fn,
+      two: fn
+    }, (action) => {
+      should.exist(action)
+    })
+    should.exist(actions.one)
+    should.exist(actions.two)
+
+    actions.one(1).should.eql({})
+    actions.two(2).should.eql({})
+    actions.one.attr.should.eql(true)
+    actions.two.attr.should.eql(true)
+    actions.one.ya.should.eql(false)
+    actions.two.ya.should.eql(false)
+  })
 })

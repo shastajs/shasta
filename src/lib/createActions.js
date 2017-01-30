@@ -9,10 +9,16 @@ export const createActions = (actions, dispatch) => {
   if (typeof actions === 'string') return createActions(createAction(actions), dispatch)
 
   // wrap function in a dispatch
-  if (typeof actions === 'function') return (...args) => {
-    const action = actions(...args)
-    dispatch(action)
-    return action
+  if (typeof actions === 'function') {
+    const fn = (...args) => {
+      const action = actions(...args)
+      dispatch(action)
+      return action
+    }
+    Object.keys(actions).forEach((k) => {
+      fn[k] = actions[k]
+    })
+    return fn
   }
 
   // iterate through objects and do mapping

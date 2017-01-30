@@ -1,6 +1,6 @@
 {
   "name": "shasta",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Dead simple + opinionated toolkit for building redux/react applications",
   "main": "dist/index.js",
   "keywords": [
