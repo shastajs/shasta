@@ -27,6 +27,10 @@ var _inherits3 = _interopRequireDefault(_inherits2);
 
 var _react = require('react');
 
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 var _reactRedux = require('react-redux');
 
 var _reactImmutableProptypes = require('react-immutable-proptypes');
@@ -82,7 +86,7 @@ var ShastaComponent = function (_ReactComponent) {
 ShastaComponent.defaultState = {};
 
 
-var PropTypes = (0, _extends3.default)({}, _reactImmutableProptypes2.default, _react.PropTypes);
+var PropTypes = (0, _extends3.default)({}, _reactImmutableProptypes2.default, _propTypes2.default);
 
 exports.Component = ShastaComponent;
 exports.connect = _connect2.default;

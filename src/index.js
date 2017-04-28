@@ -1,4 +1,5 @@
-import { Component as ReactComponent, PropTypes as RPropTypes } from 'react'
+import { Component as ReactComponent } from 'react'
+import RPropTypes from 'prop-types'
 import { Provider } from 'react-redux'
 import IPropTypes from 'react-immutable-proptypes'
 import bindClass from './lib/bindClass'
