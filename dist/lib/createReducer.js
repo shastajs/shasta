@@ -64,10 +64,10 @@ var getInitialState = function getInitialState(o, ns) {
 };
 
 var createReducerNode = function createReducerNode(_ref) {
-  var name = _ref.name;
-  var statePath = _ref.statePath;
-  var reducer = _ref.reducer;
-  var initialState = _ref.initialState;
+  var name = _ref.name,
+      statePath = _ref.statePath,
+      reducer = _ref.reducer,
+      initialState = _ref.initialState;
   return function (state) {
     var action = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 
@@ -113,11 +113,10 @@ var createReducers = function createReducers(o, parentName) {
 };
 
 var createReducer = function createReducer(o, parentName) {
-  var _createReducers = createReducers(o, parentName);
-
-  var reducers = _createReducers.reducers;
-  var isContainer = _createReducers.isContainer;
-  var name = _createReducers.name;
+  var _createReducers = createReducers(o, parentName),
+      reducers = _createReducers.reducers,
+      isContainer = _createReducers.isContainer,
+      name = _createReducers.name;
 
   if (isContainer && typeof o.initialState === 'undefined') {
     throw new Error('Reducer "' + (name || 'root') + '" is missing an initialState');

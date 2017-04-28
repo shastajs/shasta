@@ -4,8 +4,8 @@ import transformPlugins from './lib/transformPlugins'
 import { Map, Iterable } from 'immutable'
 import thunk from 'redux-thunk'
 import each from 'lodash.foreach'
-import { batchedSubscribe } from 'redux-batched-subscribe'
-import { unstable_batchedUpdates as batchedUpdates } from 'react-dom'
+// import { batchedSubscribe } from 'redux-batched-subscribe'
+// import { unstable_batchedUpdates as batchedUpdates } from 'react-dom'
 
 const identity = v => v
 
@@ -13,9 +13,12 @@ const devtools = typeof window !== 'undefined' && window.devToolsExtension
   ? window.devToolsExtension()
   : identity
 
+/*
 const defaultEnhancers = [
   batchedSubscribe(batchedUpdates)
 ]
+*/
+
 const defaultMiddleware = [
   thunk
 ]
@@ -45,7 +48,7 @@ export default ({
     ...pluginValues.middleware
   ]
   const finalEnhancers = [
-    ...defaultEnhancers,
+    //...defaultEnhancers,
     ...enhancers,
     ...pluginValues.enhancers,
     devtools

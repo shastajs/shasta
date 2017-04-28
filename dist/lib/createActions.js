@@ -5,10 +5,6 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.createActions = undefined;
 
-var _typeof2 = require('babel-runtime/helpers/typeof');
-
-var _typeof3 = _interopRequireDefault(_typeof2);
-
 var _keys = require('babel-runtime/core-js/object/keys');
 
 var _keys2 = _interopRequireDefault(_keys);
@@ -30,21 +26,15 @@ var createActions = exports.createActions = function createActions(actions, disp
 
   // wrap function in a dispatch
   if (typeof actions === 'function') {
-    var _ret = function () {
-      var fn = function fn() {
-        var action = actions.apply(undefined, arguments);
-        dispatch(action);
-        return action;
-      };
-      (0, _keys2.default)(actions).forEach(function (k) {
-        fn[k] = actions[k];
-      });
-      return {
-        v: fn
-      };
-    }();
-
-    if ((typeof _ret === 'undefined' ? 'undefined' : (0, _typeof3.default)(_ret)) === "object") return _ret.v;
+    var fn = function fn() {
+      var action = actions.apply(undefined, arguments);
+      dispatch(action);
+      return action;
+    };
+    (0, _keys2.default)(actions).forEach(function (k) {
+      fn[k] = actions[k];
+    });
+    return fn;
   }
 
   // iterate through objects and do mapping
