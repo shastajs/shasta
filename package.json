@@ -68,6 +68,7 @@
     "should": "^11.0.0"
   },
   "babel": {
+    "sourceMaps": "inline",
     "presets": [
       "es2015",
       "react",
@@ -110,7 +111,7 @@
     "react-redux": "^5.0.0",
     "reduce-reducers": "^0.1.2",
     "redux": "^3.2.1",
-    "redux-actions": "^0.11.0",
+    "redux-actions": "^2.0.0",
     "redux-batched-subscribe": "^0.1.4",
     "redux-immutablejs": "contra/redux-immutablejs",
     "redux-thunk": "^2.0.1"
