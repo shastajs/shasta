@@ -1,6 +1,6 @@
 {
   "name": "shasta",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Dead simple + opinionated toolkit for building redux/react applications",
   "main": "dist/index.js",
   "keywords": [
@@ -108,7 +108,7 @@
     "react-redux": "^5.0.7",
     "reduce-reducers": "^0.1.2",
     "redux": "^3.2.1",
-    "redux-actions": "^2.0.0",
+    "redux-actions": "^0.13.0",
     "redux-batched-subscribe": "^0.1.4",
     "redux-immutablejs": "github:contra/redux-immutablejs",
     "redux-thunk": "^2.0.1"
